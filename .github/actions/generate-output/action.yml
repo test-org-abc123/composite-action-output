@@ -4,10 +4,13 @@ description: 'Generates output foo without defining it in the metadata'
 outputs:
   baz:
     description: "Lorem ipsum"
+    value: ${{ steps.baz.outputs.baz }}
 runs:
   using: "composite"
   steps:
-    - shell: bash
+    - id: foo
+      shell: bash
       run: echo "foo=bar" >> $GITHUB_OUTPUT
-    - shell: bash
+    - id: baz
+      shell: bash
       run: echo "baz=foo" >> $GITHUB_OUTPUT
