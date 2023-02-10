@@ -1,0 +1,20 @@
+---
+name: "Test"
+
+concurrency: release
+
+on:
+  push:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output
+        id: my-output
+        uses: ./.github/actions/generate-output
+
+      - name: Test
+        run: |
+          echo ${{ steps.my-output.outputs.foo }}
