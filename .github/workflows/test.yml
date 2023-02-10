@@ -21,3 +21,4 @@ jobs:
       - name: Test
         run: |
           echo ${{ steps.my-output.outputs.foo }}
+          echo ${{ steps.my-output.outputs.baz }}
